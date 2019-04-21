@@ -13,7 +13,7 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 ## CODE:
 
     SELECT CAST(LAT_N AS DECIMAL(10,4) )
-    FROM (SELECT LAT_N, ROW_NUMBER() OVER (ORDER BY LAT_N DESC ) AS RNFROM STATION) A
+    FROM (SELECT LAT_N, ROW_NUMBER() OVER (ORDER BY LAT_N DESC ) AS RN FROM STATION) A
     WHERE RN = ( SELECT CEILING(count(lat_n)/2.0) FROM STATION);
     
 ## Output:
